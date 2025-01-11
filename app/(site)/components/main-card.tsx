@@ -58,7 +58,7 @@ const MainCard = () => {
           duration: 0.8,
           ease: "easeInOut"
         }}
-        className="w-full max-w-md"
+        className="w-full max-w-md scale-75 sm:scale-100"
       >
         <MagicCard
           className="relative w-full cursor-pointer flex-col items-center justify-center whitespace-nowrap rounded-xl p-8 shadow-2xl"
