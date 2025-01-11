@@ -48,11 +48,11 @@ const MainCard = () => {
     return `https://cdn.simpleicons.org/${slug}?viewbox=auto`
   }
 
-  const [iconDistance, setIconDistance] = useState(140)
+  const [isMobile, setisMobile] = useState(false)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth <= 640) {
-        setIconDistance(0)
+      if (window.innerWidth < 640) {
+        setisMobile(true)
       }
     }
   }, [])
@@ -67,33 +67,33 @@ const MainCard = () => {
           duration: 0.8,
           ease: "easeInOut"
         }}
-        className="w-full max-w-sm sm:max-w-md"
+        className="flex w-full max-w-sm items-center justify-center sm:max-w-md"
       >
         <MagicCard
-          className="relative w-full cursor-pointer flex-col items-center justify-center whitespace-nowrap rounded-xl p-8 shadow-2xl"
+          className="relative w-[80%] cursor-pointer flex-col items-center justify-center overflow-hidden whitespace-nowrap rounded-xl p-8 shadow-2xl sm:w-full"
           gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
         >
-          <div className="relative flex h-[500px] w-full flex-col items-center justify-center">
+          <div className="relative flex h-[300px] w-full flex-col items-center justify-center sm:h-[500px]">
             <Image
               src="/avatar.jpg"
               alt="文凯"
-              width={80}
-              height={80}
+              width={isMobile ? 40 : 80}
+              height={isMobile ? 40 : 80}
               className="overflow-hidden rounded-full object-cover"
             />
-            <OrbitingCircles iconSize={40}>
+            <OrbitingCircles iconSize={isMobile ? 30 : 40} radius={isMobile ? 100 : 160}>
               {outerSlugs.map((slug) => (
                 <Image key={slugToImage(slug)} src={slugToImage(slug)} alt={slug} width={40} height={40} unoptimized />
               ))}
             </OrbitingCircles>
-            <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
+            <OrbitingCircles iconSize={isMobile ? 20 : 30} radius={isMobile ? 50 : 100} reverse speed={2}>
               {innerSlugs.map((slug) => (
                 <Image key={slugToImage(slug)} src={slugToImage(slug)} alt={slug} width={30} height={30} unoptimized />
               ))}
             </OrbitingCircles>
           </div>
           <TooltipProvider>
-            <Dock direction="middle" iconDistance={iconDistance}>
+            <Dock direction="middle" iconDistance={isMobile ? 0 : 140} iconSize={isMobile ? 20 : 40}>
               {WebsiteLinks.map(({ icon: Icon, title, href }) => (
                 <DockIcon key={title}>
                   <Tooltip>
