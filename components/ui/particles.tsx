@@ -42,23 +42,23 @@ interface ParticlesProps {
 }
 
 function hexToRgb(hex: string): number[] {
-  hex = hex.replace("#", "")
+  let modifiedHex = hex.replace("#", "")
 
-  if (hex.length === 3) {
-    hex = hex
+  if (modifiedHex.length === 3) {
+    modifiedHex = modifiedHex
       .split("")
       .map((char) => char + char)
       .join("")
   }
 
-  const hexInt = parseInt(hex, 16)
+  const hexInt = parseInt(modifiedHex, 16)
   const red = (hexInt >> 16) & 255
   const green = (hexInt >> 8) & 255
   const blue = hexInt & 255
   return [red, green, blue]
 }
 
-type Circle = {
+interface Circle {
   x: number
   y: number
   translateX: number
@@ -112,7 +112,7 @@ const Particles: React.FC<ParticlesProps> = ({
     window.addEventListener("resize", handleResize)
 
     return () => {
-      if (rafID.current != null) {
+      if (rafID.current !== null) {
         window.cancelAnimationFrame(rafID.current)
       }
       if (resizeTimeout.current) {
@@ -227,6 +227,7 @@ const Particles: React.FC<ParticlesProps> = ({
     }
   }
 
+  // eslint-disable-next-line max-params
   const remapValue = (value: number, start1: number, end1: number, start2: number, end2: number): number => {
     const remapped = ((value - start1) * (end2 - start2)) / (end1 - start1) + start2
     return remapped > 0 ? remapped : 0
