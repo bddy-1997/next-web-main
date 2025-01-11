@@ -1,4 +1,5 @@
 import { FaGithub, FaXTwitter } from "react-icons/fa6"
+import { Rss, Navigation, Search, House } from "lucide-react"
 
 export const SiteConfig = {
   title: "文凯 | liwenka1",
@@ -12,10 +13,10 @@ export const PersonalInfo = {
 }
 
 export const WebsiteLinks = [
-  { title: "Blog", href: "https://blog.liwenkai.fun" },
-  { title: "Nav", href: "https://nav.liwenkai.fun" },
-  { title: "Search", href: "https://s.liwenkai.fun" },
-  { title: "Me", href: "https://me.liwenkai.fun" }
+  { title: "Me", href: "https://me.liwenkai.fun", icon: House },
+  { title: "Blog", href: "https://blog.liwenkai.fun", icon: Rss },
+  { title: "Nav", href: "https://nav.liwenkai.fun", icon: Navigation },
+  { title: "Search", href: "https://s.liwenkai.fun", icon: Search }
 ]
 
 export const SocialConfig = [

@@ -12,7 +12,7 @@ const Site = () => {
 
   return (
     <div>
-      <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas" />
+      <canvas className="bg-skin-base pointer-events-none absolute inset-0 z-20" id="canvas" />
       <MainCard />
     </div>
   )
