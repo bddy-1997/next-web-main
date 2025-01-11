@@ -29,12 +29,23 @@ const MainCard = () => {
     "typescript",
     "vue.js",
     "react",
-    "nextdotjs",
+    "nextdotjs/color/white",
     "nuxt"
   ]
-  const outerSlugs = ["nodedotjs", "nestjs", "prisma", "nginx", "vercel", "docker", "git", "github", "vite", "webpack"]
+  const outerSlugs = [
+    "nodedotjs",
+    "nestjs",
+    "prisma",
+    "nginx",
+    "vercel/color/white",
+    "docker",
+    "git",
+    "github/color/white",
+    "vite",
+    "webpack"
+  ]
   const slugToImage = (slug: string) => {
-    return `https://cdn.simpleicons.org/${slug}/${slug}`
+    return `https://cdn.simpleicons.org/${slug}?viewbox=auto`
   }
 
   return (
@@ -57,16 +68,13 @@ const MainCard = () => {
             <Image
               src="/avatar.jpg"
               alt="文凯"
-              width={120}
-              height={120}
+              width={80}
+              height={80}
               className="overflow-hidden rounded-full object-cover"
             />
-            {/* <h1 className="mb-2 text-2xl font-bold">{PersonalInfo.name}</h1>
-            <p className="mb-4">{PersonalInfo.title}</p>
-            <p className="mb-6 text-sm">{PersonalInfo.description}</p> */}
             <OrbitingCircles iconSize={40}>
               {outerSlugs.map((slug) => (
-                <Image key={slugToImage(slug)} src={slugToImage(slug)} alt={slug} width={30} height={30} unoptimized />
+                <Image key={slugToImage(slug)} src={slugToImage(slug)} alt={slug} width={40} height={40} unoptimized />
               ))}
             </OrbitingCircles>
             <OrbitingCircles iconSize={30} radius={100} reverse speed={2}>
