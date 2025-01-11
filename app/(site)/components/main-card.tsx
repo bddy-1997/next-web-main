@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 import Image from "next/image"
 import Link from "next/link"
@@ -48,7 +48,14 @@ const MainCard = () => {
     return `https://cdn.simpleicons.org/${slug}?viewbox=auto`
   }
 
-  const isMobile = window.innerWidth < 768
+  const [iconDistance, setIconDistance] = useState(140)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.innerWidth <= 640) {
+        setIconDistance(0)
+      }
+    }
+  }, [])
 
   return (
     <AuroraBackground>
@@ -86,7 +93,7 @@ const MainCard = () => {
             </OrbitingCircles>
           </div>
           <TooltipProvider>
-            <Dock direction="middle" iconDistance={isMobile ? 0 : 140}>
+            <Dock direction="middle" iconDistance={iconDistance}>
               {WebsiteLinks.map(({ icon: Icon, title, href }) => (
                 <DockIcon key={title}>
                   <Tooltip>
