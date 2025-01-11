@@ -48,6 +48,8 @@ const MainCard = () => {
     return `https://cdn.simpleicons.org/${slug}?viewbox=auto`
   }
 
+  const isMobile = window.innerWidth < 768
+
   return (
     <AuroraBackground>
       <motion.div
@@ -58,7 +60,7 @@ const MainCard = () => {
           duration: 0.8,
           ease: "easeInOut"
         }}
-        className="w-full max-w-md scale-75 sm:scale-100"
+        className="w-full max-w-sm sm:max-w-md"
       >
         <MagicCard
           className="relative w-full cursor-pointer flex-col items-center justify-center whitespace-nowrap rounded-xl p-8 shadow-2xl"
@@ -84,7 +86,7 @@ const MainCard = () => {
             </OrbitingCircles>
           </div>
           <TooltipProvider>
-            <Dock direction="middle">
+            <Dock direction="middle" iconDistance={isMobile ? 0 : 140}>
               {WebsiteLinks.map(({ icon: Icon, title, href }) => (
                 <DockIcon key={title}>
                   <Tooltip>
