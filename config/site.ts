@@ -3,7 +3,7 @@ import { Rss, Navigation, Search, House } from "lucide-react"
 
 export const SiteConfig = {
   title: "小宇宇",
-  description: "小宇宇得我个人主页"
+  description: "小宇宇的个人主页"
 }
 
 export const PersonalInfo = {
