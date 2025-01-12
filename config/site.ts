@@ -2,13 +2,13 @@ import { FaGithub, FaXTwitter } from "react-icons/fa6"
 import { Rss, Navigation, Search, House } from "lucide-react"
 
 export const SiteConfig = {
-  title: "文凯 | liwenka1",
-  description: "文凯的个人主页"
+  title: "小宇宇",
+  description: "小宇宇得我个人主页"
 }
 
 export const PersonalInfo = {
-  name: "文凯",
-  title: "软件工程师 | 开源爱好者",
+  name: "小宇宇",
+  title: "英语",
   description: "Better Late than Never"
 }
 
